@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'ESegment_Example' do
+  pod 'ESegment', :path => '../'
+
+  target 'ESegment_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
