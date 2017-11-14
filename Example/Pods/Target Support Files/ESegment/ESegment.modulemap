@@ -1,0 +1,6 @@
+framework module ESegment {
+  umbrella header "ESegment-umbrella.h"
+
+  export *
+  module * { export * }
+}
