@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-                        基础功能完成
+                        基础功能完成, 支持storybaord上实时展示当前的配置状态
                        DESC
 
   s.homepage         = 'https://gitee.com/leeszi/ESegment'
