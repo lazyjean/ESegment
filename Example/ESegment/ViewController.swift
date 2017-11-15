@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import ESegment
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var segment: ESegment!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        segment.items = ["首页", "个人主页"]
     }
 
     override func didReceiveMemoryWarning() {

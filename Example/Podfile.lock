@@ -1,5 +1,5 @@
 PODS:
-  - ESegment (0.1.0)
+  - ESegment (0.1.4)
 
 DEPENDENCIES:
   - ESegment (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  ESegment: d460eda5979c2f631036e96359fe65ad461a2a54
+  ESegment: b138ca2f5aaf53a3eb7f7bc26d28506b87e5b0a0
 
 PODFILE CHECKSUM: 00784238638c39f0c8000add81c8b48abc7c8ce7
 

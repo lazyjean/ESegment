@@ -12,7 +12,7 @@ import UIKit
 open class ESegment: UIControl {
     
     //条目
-    var items: [String?]? {
+    public var items: [String?]? {
         didSet {
             for sub in self.subviews {
                 sub.removeFromSuperview()
@@ -31,26 +31,26 @@ open class ESegment: UIControl {
     
     //配置指示器
     var indicator: UIView?
-    @IBInspectable var indicatorH: CGFloat = 4
-    @IBInspectable var indicatorW: CGFloat = 19
-    @IBInspectable var indicatorColor: UIColor = #colorLiteral(red: 0.9803921569, green: 0.568627451, blue: 0.1960784314, alpha: 1)
+    @IBInspectable public var indicatorH: CGFloat = 4
+    @IBInspectable public var indicatorW: CGFloat = 19
+    @IBInspectable public var indicatorColor: UIColor = #colorLiteral(red: 0.9803921569, green: 0.568627451, blue: 0.1960784314, alpha: 1)
     
     //配置分隔线
-    @IBInspectable var separatorColor: UIColor = #colorLiteral(red: 0.8666666667, green: 0.8666666667, blue: 0.8666666667, alpha: 1)
-    @IBInspectable var separatorWidth: CGFloat = 1
+    @IBInspectable public var separatorColor: UIColor = #colorLiteral(red: 0.8666666667, green: 0.8666666667, blue: 0.8666666667, alpha: 1)
+    @IBInspectable public var separatorWidth: CGFloat = 1
     
     //字体
-    @IBInspectable var font: UIFont = UIFont.systemFont(ofSize: 14)
+    @IBInspectable public var font: UIFont = UIFont.systemFont(ofSize: 14)
     
     //设置字体大小
-    @IBInspectable var fontSize: CGFloat = 14 {
+    @IBInspectable public var fontSize: CGFloat = 14 {
         didSet {
             font = UIFont.systemFont(ofSize: fontSize)
         }
     }
     
-    @IBInspectable var fontColor: UIColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
-    @IBInspectable var selectedColor: UIColor = #colorLiteral(red: 0.9803921569, green: 0.568627451, blue: 0.1960784314, alpha: 1)
+    @IBInspectable public var fontColor: UIColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
+    @IBInspectable public var selectedColor: UIColor = #colorLiteral(red: 0.9803921569, green: 0.568627451, blue: 0.1960784314, alpha: 1)
     
     open override func awakeFromNib() {
         createIndicator()
@@ -64,8 +64,10 @@ open class ESegment: UIControl {
             let label = UILabel()
             label.text = item
             label.textAlignment = .center
+            label.font = self.font
             labels.append(label)
             addSubview(label)
+            label.sizeToFit()
         }
 
         separators.removeAll()
@@ -77,6 +79,8 @@ open class ESegment: UIControl {
                 addSubview(separator)
             }
         }
+        
+        
     }
     
     func createIndicator() {
@@ -188,6 +192,6 @@ open class ESegment: UIControl {
     }
 
     override open func prepareForInterfaceBuilder() {
-        items = ["A", "B", "C"]
+        items = ["A", "B"]
     }
 }
