@@ -23,7 +23,7 @@ open class ESegment: UIControl {
     }
     
     //当前选中的idnex
-    @IBInspectable var selectedIndex: Int = 0
+    @IBInspectable public var selectedIndex: Int = 0
     
     //UI
     var labels: [UILabel] = []
