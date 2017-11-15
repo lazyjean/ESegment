@@ -18,6 +18,7 @@ open class ESegment: UIControl {
                 sub.removeFromSuperview()
             }
             createLabels()
+            createIndicator()
         }
     }
     
@@ -32,37 +33,28 @@ open class ESegment: UIControl {
     var indicator: UIView?
     @IBInspectable var indicatorH: CGFloat = 4
     @IBInspectable var indicatorW: CGFloat = 19
-    @IBInspectable var indicatorColor = #colorLiteral(red: 0.9803921569, green: 0.568627451, blue: 0.1960784314, alpha: 1)
+    @IBInspectable var indicatorColor: UIColor = #colorLiteral(red: 0.9803921569, green: 0.568627451, blue: 0.1960784314, alpha: 1)
     
     //配置分隔线
-    var separatorColor = #colorLiteral(red: 0.8666666667, green: 0.8666666667, blue: 0.8666666667, alpha: 1)
-    var separatorWidth:CGFloat = 1
+    @IBInspectable var separatorColor: UIColor = #colorLiteral(red: 0.8666666667, green: 0.8666666667, blue: 0.8666666667, alpha: 1)
+    @IBInspectable var separatorWidth: CGFloat = 1
     
     //字体
-    @IBInspectable var font = UIFont.systemFont(ofSize: 14)
-    @IBInspectable var fontColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
-    @IBInspectable var selectedColor = #colorLiteral(red: 0.9803921569, green: 0.568627451, blue: 0.1960784314, alpha: 1)
+    @IBInspectable var font: UIFont = UIFont.systemFont(ofSize: 14)
+    
+    //设置字体大小
+    @IBInspectable var fontSize: CGFloat = 14 {
+        didSet {
+            font = UIFont.systemFont(ofSize: fontSize)
+        }
+    }
+    
+    @IBInspectable var fontColor: UIColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
+    @IBInspectable var selectedColor: UIColor = #colorLiteral(red: 0.9803921569, green: 0.568627451, blue: 0.1960784314, alpha: 1)
     
     open override func awakeFromNib() {
         createIndicator()
     }
-    //初始化方法
-//    public required init(items:[String?]?) {
-//        super.init(frame: .zero)
-//        self.items = items
-//        createLabels()
-//        setup()
-//    }
-    
-//    public init(items:[String?]?) {
-//        super.init(frame: .zero)
-//    }
-    
-//    required public init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//        setup()
-//        createLabels()
-//    }
     
     //生成Labels
     func createLabels() {
@@ -196,6 +188,6 @@ open class ESegment: UIControl {
     }
 
     override open func prepareForInterfaceBuilder() {
-        items = ["A", "B", "C", "D"]
+        items = ["A", "B", "C"]
     }
 }
