@@ -22,6 +22,12 @@ open class ESegment: UIControl {
         }
     }
     
+    @IBInspectable var itemString: String? {
+        didSet {
+            items = itemString?.components(separatedBy: CharacterSet.init(charactersIn: " "))
+        }
+    }
+    
     //当前选中的idnex
     @IBInspectable public var selectedIndex: Int = 0
     
@@ -192,6 +198,6 @@ open class ESegment: UIControl {
     }
 
     override open func prepareForInterfaceBuilder() {
-        items = ["A", "B"]
+        items = itemString?.components(separatedBy: CharacterSet.init(charactersIn: " "))
     }
 }
