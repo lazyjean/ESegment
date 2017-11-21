@@ -58,6 +58,9 @@ open class ESegment: UIControl {
     @IBInspectable public var fontColor: UIColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
     @IBInspectable public var selectedColor: UIColor = #colorLiteral(red: 0.9803921569, green: 0.568627451, blue: 0.1960784314, alpha: 1)
     
+    //垂直布局
+    @IBInspectable public var vertical: Bool = false
+    
     open override func awakeFromNib() {
         createIndicator()
     }
@@ -105,28 +108,47 @@ open class ESegment: UIControl {
     open override func layoutSubviews() {
         super.layoutSubviews()
 
-        let itemWidth = (self.frame.width - CGFloat(2*separators.count))/CGFloat(labels.count)
-        let contentHeight = self.frame.height
-        var center = CGPoint(x: itemWidth/2.0, y: contentHeight/2.0)
-
-        //布局label
-        for index in 0..<labels.count {
-            let label = labels[index]
-            label.sizeToFit()
-            label.font = font
-            label.textColor = selectedIndex == index ? selectedColor : fontColor
-            label.center = center
-            center.x += itemWidth + separatorWidth //2个像素为分隔线的宽度
+        if vertical {
+            let itemHeight = (self.frame.height - CGFloat(2*separators.count))/CGFloat(labels.count)
+            var center = CGPoint(x: self.frame.width/2.0, y: itemHeight/2.0)
+            
+            //布局label
+            for index in 0..<labels.count {
+                let label = labels[index]
+                label.sizeToFit()
+                label.font = font
+                label.textColor = selectedIndex == index ? selectedColor : fontColor
+                label.center = center
+                center.y += itemHeight + separatorWidth //2个像素为分隔线的宽度
+            }
+            indicator?.isHidden = true
         }
-
-        //布局分隔线
-        center.x = itemWidth + separatorWidth/2.0
-        for index in 0..<separators.count {
-            let separator = separators[index]
-            separator.frame.size = CGSize(width: separatorWidth, height: font.lineHeight)
-            separator.center = center
-            separator.backgroundColor = separatorColor
-            center.x += itemWidth + separatorWidth
+        else {
+            indicator?.isHidden = false
+            
+            let itemWidth = (self.frame.width - CGFloat(2*separators.count))/CGFloat(labels.count)
+            let contentHeight = self.frame.height
+            var center = CGPoint(x: itemWidth/2.0, y: contentHeight/2.0)
+            
+            //布局label
+            for index in 0..<labels.count {
+                let label = labels[index]
+                label.sizeToFit()
+                label.font = font
+                label.textColor = selectedIndex == index ? selectedColor : fontColor
+                label.center = center
+                center.x += itemWidth + separatorWidth //2个像素为分隔线的宽度
+            }
+            
+            //布局分隔线
+            center.x = itemWidth + separatorWidth/2.0
+            for index in 0..<separators.count {
+                let separator = separators[index]
+                separator.frame.size = CGSize(width: separatorWidth, height: font.lineHeight)
+                separator.center = center
+                separator.backgroundColor = separatorColor
+                center.x += itemWidth + separatorWidth
+            }
         }
 
         layoutIndicator()
@@ -186,7 +208,13 @@ open class ESegment: UIControl {
     }
 
     func indexOf(point: CGPoint) -> Int {
-        let width = self.frame.width / CGFloat(labels.count)
+        if vertical {
+            let height = frame.height / CGFloat(labels.count)
+            let index = Int(point.y / height)
+            return index
+        }
+        
+        let width = frame.width / CGFloat(labels.count)
         let index = Int(point.x / width)
         return index
     }

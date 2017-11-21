@@ -58,12 +58,53 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="itemString" value="我的 明天"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8KR-me-fZh" customClass="ESegment" customModule="ESegment">
+                                <rect key="frame" x="132.5" y="90" width="110" height="314"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="314" id="K5s-mz-z3P"/>
+                                    <constraint firstAttribute="width" constant="110" id="szB-cv-Kap"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="selectedIndex">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                        <color key="value" red="0.5" green="0.74815848210000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="indicatorColor">
+                                        <color key="value" red="1" green="0.2202008929" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedColor">
+                                        <color key="value" red="0.02793001011" green="0.59189271929999998" blue="0.99612766500000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="indicatorW">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="indicatorH">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                        <real key="value" value="40"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="separatorColor">
+                                        <color key="value" white="0.85002790179999999" alpha="0.36724251759999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="separatorWidth">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="itemString" value="语言 数学 英语"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="vertical" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="4Sy-mO-q6H" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="3MB-1r-Gg5"/>
+                            <constraint firstItem="8KR-me-fZh" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="C82-3f-UzA"/>
                             <constraint firstItem="4Sy-mO-q6H" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="Rkh-vq-oEx"/>
                             <constraint firstAttribute="trailing" secondItem="4Sy-mO-q6H" secondAttribute="trailing" id="TCw-3i-Dse"/>
+                            <constraint firstItem="8KR-me-fZh" firstAttribute="top" secondItem="4Sy-mO-q6H" secondAttribute="bottom" constant="20" id="mbt-qi-Pc9"/>
                         </constraints>
                     </view>
                     <connections>
