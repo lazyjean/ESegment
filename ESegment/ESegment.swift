@@ -88,8 +88,6 @@ open class ESegment: UIControl {
                 addSubview(separator)
             }
         }
-        
-        
     }
     
     func createIndicator() {
@@ -115,8 +113,8 @@ open class ESegment: UIControl {
             //布局label
             for index in 0..<labels.count {
                 let label = labels[index]
-                label.sizeToFit()
                 label.font = font
+                label.sizeToFit()
                 label.textColor = selectedIndex == index ? selectedColor : fontColor
                 label.center = center
                 center.y += itemHeight + separatorWidth //2个像素为分隔线的宽度
