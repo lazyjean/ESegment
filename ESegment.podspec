@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ESegment'
-  s.version          = '0.2.0'
+  s.version          = '0.2.1'
   s.summary          = '可在storyboard上使用的segment组件'
 
 # This description is used to generate tags and improve search results.
@@ -21,10 +21,10 @@ Pod::Spec.new do |s|
                         基础功能完成, 支持storybaord上实时展示当前的配置状态
                        DESC
 
-  s.homepage         = 'https://gitee.com/leeszi/ESegment'
+  s.homepage         = 'https://github.com/lazyjean/ESegment'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'liuzhen' => 'lazyjean@foxmail.com' }
-  s.source           = { :git => 'https://gitee.com/leeszi/ESegment.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/lazyjean/ESegment.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '9.0'
 
