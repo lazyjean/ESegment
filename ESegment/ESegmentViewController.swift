@@ -73,10 +73,7 @@ open class ESegmentViewController: UIViewController {
         let segmentSize = segment.intrinsicContentSize
         
         var origin: CGPoint = .zero
-        
-        if self.topLayoutGuide != nil {
-            origin.y += self.topLayoutGuide.length
-        }
+        origin.y += self.topLayoutGuide.length
         
         segment.frame = CGRect(x: origin.x, y: origin.y, width: self.view.frame.width, height: segmentSize.height)
         origin.y += segmentSize.height
