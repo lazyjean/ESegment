@@ -1,6 +1,6 @@
 {
   "name": "ESegment",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "summary": "可在storyboard上使用的segment组件",
   "description": "基础功能完成, 支持storybaord上实时展示当前的配置状态",
   "homepage": "https://github.com/lazyjean/ESegment",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/lazyjean/ESegment.git",
-    "tag": "0.2.2"
+    "tag": "0.2.3"
   },
   "platforms": {
     "ios": "9.0"

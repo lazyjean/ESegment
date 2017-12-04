@@ -72,9 +72,16 @@ open class ESegmentViewController: UIViewController {
         
         let segmentSize = segment.intrinsicContentSize
         
-        segment.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: segmentSize.height)
+        var origin: CGPoint = .zero
         
-        transionView.frame = CGRect(x: 0, y: segmentSize.height, width: self.view.frame.width, height: self.view.frame.size.height - segmentSize.height)
+        if self.topLayoutGuide != nil {
+            origin.y += self.topLayoutGuide.length
+        }
+        
+        segment.frame = CGRect(x: origin.x, y: origin.y, width: self.view.frame.width, height: segmentSize.height)
+        origin.y += segmentSize.height
+        
+        transionView.frame = CGRect(x: 0, y: origin.y, width: self.view.frame.width, height: self.view.frame.height - self.bottomLayoutGuide.length - origin.y)
         
         //如果没有添加到视图中，先添加进来
         if transionView.superview == nil, segment.superview == nil {
